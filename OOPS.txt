@@ -1,0 +1,123 @@
+===============================================================================
+
+Object-Oriented Programming:
+Why we use object-oriented programming?
+-- To solve real-world problems in which real-world entities are involved.
+-----------------------------------------
+
+Object: Any Real World Entity
+-- Every object is having attributes/fields/properties
+    eg. Customer - customerId, customerName, cutsomerAdress, customerEmail etc..
+           BankAccount - accountId, accountType, accountHolderName, accountBalance etc..
+
+-- Every object is also having behaviors.
+    eg. BankAccount - withdraw, deposit, checkBalance, fundTransfter etc..
+
+-- Every object is having identity.
+    eg. BankAccount - accountId
+
+-- Every object is having state.
+    -- Values assigned to properties/attributes of an object at any given instance of time is called as "State of an         object"
+
+
+4 Principles/Paradigms of OOP:
+1)  Abstraction: Finding out relevant attributes and behaviors of an object based on software domain.
+2) Encapsulation: Grouping datat members and methods of an object into single unit i.e. class 
+3) Inheritance:Two advantage: Reusability and Extensibility
+4) Polymorphism:
+
+account.withdraw(5000)
+
+Customer customer1 = new Customer();
+
+Employee employee1 = new Employee();
+
+this - it always refer to currently executing object.
+
+=============================================================================
+
+package com.capgemini.icici.domain;
+
+public class BankAccount {
+	
+	private long accId;
+	private String accHolderName;
+	private String accType;
+	private double balance;
+	
+	public BankAccount() {
+	}
+	
+	public BankAccount(long accId, String accHolderName, String accType, double balance) {
+		this.accId = accId;
+		this.accHolderName = accHolderName;
+		this.accType = accType;
+		this.balance = balance;
+	}
+	
+	public double withdraw(double amount) {
+		if(balance - amount >= 0)
+			balance = balance - amount;
+		else
+			System.out.println("You don't have sufficient balance.");
+		return balance;
+	}
+	
+	public double deposit(double amount) {
+		balance = balance + amount;
+		return balance;
+	}
+	
+	public double getBalance() {
+		return balance;
+	}
+	
+	public void displayBankAccountDetails() {
+		System.out.println("Account Id : " + accId + "\nAccount holder name: " + accHolderName +  
+				"\nAccount type: " + accType + "\nAccount balance: " + balance);
+	} 
+ } 
+
+---------------------------------------------------------------
+
+package com.capgemini.day2.tests;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import com.capgemini.icici.domain.BankAccount;
+
+class BankAccountTest {
+
+	BankAccount account;
+
+	@BeforeEach
+	void setUp() {
+		account = new BankAccount(1234, "John Doe", "SAVING", 50000);
+	}
+
+	@Test
+	void testWithdraw() {
+		assertEquals(45000.0, account.withdraw(5000), 0.02);
+		assertEquals(38000.0, account.withdraw(7000), 0.02);
+		assertEquals(33432.66, account.withdraw(4567.34), 0.02);
+		assertEquals(33432.66, account.withdraw(120000), 0.02);
+	}
+
+	@Test
+	void testDeposit() {
+		assertEquals(55000.0, account.deposit(5000));
+		assertEquals(59567.34, account.deposit(4567.34));
+	}
+
+	@AfterEach
+	void tearDown() {
+		account = null;
+	}
+}
+
+---------------------------------------------------------------------------
+

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://notepad.pw/javalearners -->
+<html ng-app="app" lang="en" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta name="description" content="Save your notes online for free and share them with friends!">
+<meta name="keywords" content="notepad online,notepad,cloud,free notepad,save notes,notes,online notepad,cloud notepad,write,note,writing,publish,webpage,markdown">
+<link rel="shortcut icon" href="https://notepad.pw/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://notepad.pw/favicon.ico" type="image/x-icon">
+<meta property="og:type" content="website">
+<meta property="og:title" content="notepad.pw">
+<meta property="og:description" content="Save your notes online for free and share them with friends!">
+<meta property="og:url" content="https://notepad.pw">
+<meta property="og:image" content="https://notepad.pw/og-icon.png">
+<title>notepad.pw / javalearners | Free Online Notepad</title>
+<link href="./notepad.pw _ javalearners _ Free Online Notepad_files/css" rel="stylesheet" type="text/css">
+<link id="mode" href="./notepad.pw _ javalearners _ Free Online Notepad_files/global.css" rel="stylesheet" type="text/css">
+<link href="./notepad.pw _ javalearners _ Free Online Notepad_files/normalize.min.css" rel="stylesheet" media="screen" type="text/css">
+<link href="./notepad.pw _ javalearners _ Free Online Notepad_files/ionicons.min.css" rel="stylesheet" type="text/css">
+<script async="" src="./notepad.pw _ javalearners _ Free Online Notepad_files/adsbygoogle.js.download"></script>
+<script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-6686265169561100",
+        enable_page_level_ads: true
+        });
+    </script>
+</head>
+<body>
+<div class="container" style="margin: 37.25px auto 0px; display: block;">
+<div ng-controller="app.navigation" class="functions ng-scope">
+<div class="nav">
+<div class="fl-left" style="opacity: 0.7;">
+<div class="notepad_logo" title="Click here for Google Search">
+<i class="ion-cloud"></i> <span class="msg">Notepad</span>
+</div>
+<div class="gsearch">
+<i class="ion-social-google" title="Click here to close"></i> <input type="text" onkeypress="return checkEnter(event)" class="search_google" placeholder="type here &amp; press enter" autocomplete="off" style="width: 200px;">
+<input type="text" style="display:none">
+</div>
+</div>
+<div class="fl-right" style="opacity: 0.7;">
+<a href="javascript:void(0)" ng-click="new_note();" class="tooltip">
+<i class="ion-plus"></i>
+<div class="tooltiptext">New Note</div>
+</a>
+<a ng-click="modal = !modal; show_password();" href="javascript:void(0)" class="tooltip">
+<i class="ion-locked"></i>
+<div class="tooltiptext">Password Options</div>
+</a>
+<a ng-click="modal = !modal; show_change_url();" href="javascript:void(0)" class="tooltip">
+<i class="ion-edit"></i>
+<div class="tooltiptext">Change URL</div>
+</a>
+<a class="desktop-only tooltip " href="https://notepad.pw/account/login">
+<i class="ion-person"></i>
+<div class="tooltiptext">Account Panel</div>
+</a>
+<a href="javascript:void(0)" class="desktop-only tooltip not-active" ng-click="sp()">
+SP
+<div class="tooltiptext">Spell Check</div>
+</a>
+<a href="javascript:void(0)" ng-init="mo_class = &#39;not-active&#39;" class="desktop-only tooltip not-active" ng-click="mo()">
+MO
+<div class="tooltiptext">Monospace Font</div>
+</a>
+<a href="javascript:void(0)" class="desktop-only tooltip" onclick="swapsheets()">
+<i class="ion-lightbulb"></i>
+<div class="tooltiptext">Light Switch</div>
+</a>
+<a href="https://notepad.pw/tools" target="_blank" class="desktop-only tooltip">
+<i class="ion-settings"></i>
+<div class="tooltiptext">Tools</div>
+</a>
+</div>
+<div class="cf"></div>
+<div ng-show="modal" class="modal ng-hide" style="opacity: 1; display: block;">
+<!-- ngIf: edit_password -->
+<!-- ngIf: change_url -->
+<!-- ngIf: password_options -->
+</div>
+</div>
+</div>
+<div class="txt-holder ng-scope" ng-controller="app.push">
+<textarea ng-model="textarea" allow-tab="" open-url="" character-count="" bind-input="update_contents();" ng-change="update_contents();" class="textarea ng-valid ng-not-empty ng-touched ng-dirty ng-valid-parse" spellcheck="false" placeholder="" style="font-size: 15px; height: 479px;"></textarea>
+<div style="-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;" class="direct-raw desktop-only">
+<a class="resize" href="javascript:void(0)" title="Resize window"><i class="ion-arrow-resize"></i></a>&nbsp;
+<a class="increase" href="javascript:void(0)" title="Increase font-size"><i class="ion-plus"></i></a>&nbsp;
+<a class="decrease" href="javascript:void(0)" title="Decrease font-size"><i class="ion-minus"></i></a>&nbsp;
+<a target="_blank" href="https://notepad.pw/raw/jfrxg208v" title="View in plain-text">Raw</a>&nbsp;
+<a target="_blank" href="https://notepad.pw/markdown/jfrxg208v" title="View in markdown">MarkDown</a>&nbsp;
+<a target="_blank" href="https://notepad.pw/code/jfrxg208v" title="View with line numbers">Code</a>&nbsp;
+</div>
+</div>
+<div ng-controller="app.navigation" class="functions ng-scope">
+<div class="footer-share text-center" style="opacity: 0.7;">
+<button class="share-btn" title="Copy Editable Link" data-clipboard-text="https://notepad.pw/javalearners" onclick="$(this).find(&#39;span&#39;).stop().fadeOut().fadeIn();"><span><i class="ion-link"></i> Editable Link</span></button>
+<button class="share-btn" title="Copy Share Link" data-clipboard-text="https://notepad.pw/share/jfrxg208v" onclick="$(this).find(&#39;span&#39;).stop().fadeOut().fadeIn();"><span><i class="ion-android-share"></i> Share Link</span></button>
+<div class="footer-stats"><b>Words:</b> <span class="word_count">21</span> | <b>Chars:</b> <span class="char_count">925</span> | <b>Views:</b> 2</div>
+<div class="footer-stats"><small><b>Last Updated:</b> 3 Days ago</small></div> </div>
+</div>
+</div>
+<div class="footer-print" style="display: block;">
+<a target="_blank" href="https://notepad.pw/privacy">Privacy</a>
+<i class="ion-ios-minus-empty"></i>
+<a target="_blank" href="https://notepad.pw/feedback">Feedback</a>
+<i class="ion-ios-minus-empty"></i>
+<a target="_blank" href="https://notepad.pw/about">About Us</a>
+<i class="ion-ios-minus-empty"></i>
+<a target="_blank" href="https://notepad.pw/apps">Apps</a>
+</div>
+<div class="np-share desktop-only">
+<div class="share-content">
+<a class="share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://notepad.pw/share/jfrxg208v" onclick="javascript:window.open(this.href, &#39;&#39;, &#39;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&#39;);return false;" target="_blank"><i class="ion-social-facebook"></i></a>
+<a class="share-link" href="http://twitter.com/share?text=notepad.pw&amp;url=https://notepad.pw/share/jfrxg208v" onclick="javascript:window.open(this.href, &#39;&#39;, &#39;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&#39;);return false;" target="_blank"><i class="ion-social-twitter"></i></a>
+<a class="share-link" href="https://reddit.com/submit?url=https://notepad.pw/share/jfrxg208v&amp;title=notepad.pw" target="_blank"><i class="ion-social-reddit"></i></a>
+</div>
+<i class="ion-ios-upload-outline share-opener" style="width: 20px;display: block;"></i>
+</div>
+<script type="text/javascript" src="./notepad.pw _ javalearners _ Free Online Notepad_files/jquery.min.js.download"></script>
+<script type="text/javascript" src="./notepad.pw _ javalearners _ Free Online Notepad_files/angular.min.js.download"></script>
+<script type="text/javascript" src="./notepad.pw _ javalearners _ Free Online Notepad_files/angular-cookies.min.js.download"></script>
+<script type="text/javascript" src="./notepad.pw _ javalearners _ Free Online Notepad_files/socket.io.min.js.download"></script>
+<script>
+    note_created = true;
+    password_set = true;
+    caret = 951;
+    pad_key = 'jfrxg208v';
+    url_key = 'javalearners';
+    version = 229;
+</script>
+<script type="text/javascript" src="./notepad.pw _ javalearners _ Free Online Notepad_files/app.min.js.download"></script>
+<script type="text/javascript" src="./notepad.pw _ javalearners _ Free Online Notepad_files/store.min.js.download"></script>
+<script src="./notepad.pw _ javalearners _ Free Online Notepad_files/clipboard.min.js.download"></script>
+<script>
+    initiate_localStorage();
+
+    function initiate_localStorage() {
+        arr = [];
+        input_value = url_key;
+        if (store.get('recent')) {
+            if ($.inArray(input_value, store.get('recent')) == -1) {
+                arr = store.get('recent');
+                arr.push(input_value);
+                store.set('recent', arr);
+            }
+        } else {
+            arr = [input_value];
+            store.set('recent',arr);
+        }
+        update_localStorage();
+    }
+
+    function update_localStorage() {
+        arr = store.get('recent');
+        if (arr.length >= 6) {
+            arr.shift();
+            store.set('recent',arr);
+        }
+    }
+
+    new Clipboard('.share-btn');
+</script>
+
+
+</body></html>
